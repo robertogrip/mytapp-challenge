@@ -41,7 +41,7 @@ class Home extends Component {
                 <Header/>
                 <div className="home-page">
                     <div className="ctainer">
-                        <h3 className="category-name">Tendency</h3>
+                        <h3 className="category-name">Novidades</h3>
                         <div className="row beers-container">
                             {
                                 this.state.beers.map((beer, index) => {

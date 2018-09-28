@@ -15,7 +15,7 @@ const fetchBeersSuccess = (beers) => ({
 
 const getBeersuccess = (beer) => ({
     type: GET_BEER,
-    beer: beer
+    beer: beer[0]
 });
 
 function FetchBeers() {

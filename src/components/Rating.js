@@ -9,6 +9,7 @@ class Rating extends Component {
 
 		return (
 			<div className="rating-container">
+				{this.props.label && <p>{this.props.label}</p>}
 				<ul>
 					<li>{stars >= 2 ? <Star active={true}/> : <Star/> }</li>
 					<li>{stars >= 4 ? <Star active={true}/> : <Star/> }</li>

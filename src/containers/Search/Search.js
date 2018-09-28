@@ -11,8 +11,9 @@ class Search extends Component {
     constructor() {
         super();
         this.state = {
+            loading: true,
             searchBeers: [],
-            loading: false
+            emptySearch: false
         }
     }
 
@@ -26,7 +27,8 @@ class Search extends Component {
         if( nextprops.match.params.term !== this.props.match.params.term ){
             this.setState({
                 loading: true,
-                searchBeers: []
+                searchBeers: [],
+                emptySearch: false
             });
             this.props.dispatch(SearchBeers(nextprops.match.params.term));
         }
@@ -34,15 +36,20 @@ class Search extends Component {
         if( nextprops.match.params.term === this.props.match.params.term && nextprops.searchBeers.length ) {
             this.setState({
                 loading: false,
+                emptySearch: false,
+                searchBeers: nextprops.searchBeers
+            });
+        } else if( nextprops.match.params.term === this.props.match.params.term && !nextprops.searchBeers.length ) {
+            this.setState({
+                loading: false,
+                emptySearch: true,
                 searchBeers: nextprops.searchBeers
             });
         }
     }
     
     render() {
-        console.log(this);
-
-        if( this.state.loading || !this.state.searchBeers.length ) {
+        if( this.state.loading ) {
             return (
                 <div>
                     <Header term={this.props.match.params.term || ''}/>
@@ -56,7 +63,7 @@ class Search extends Component {
                 <Header term={this.props.match.params.term || ''}/>
                 <div className="search-page">
                     <div className="ctainer">
-                        <h3 className="category-name">{this.props.match.params.term}</h3>
+                        <h3 className="category-name">{this.state.emptySearch ? `Sem resultados para a busca: ${this.props.match.params.term}` : this.props.match.params.term}</h3>
                         <div className="row beers-container">
                             {
                                 this.state.searchBeers.map((beer, index) => {

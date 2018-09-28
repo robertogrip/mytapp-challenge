@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    color: #fff;
+    color: #333;
     font-family: sans-serif;
 }
 
@@ -142,6 +142,10 @@ header.beer-header .account .avatar-name {
     -webkit-animation: rotate-center 0.75s linear infinite both;
 }
 
+.loading-container.full img {
+    top: 0;
+}
+
 .category-name {
     opacity: .5;
     margin-bottom: 16px;
@@ -229,21 +233,13 @@ header.beer-header .account .avatar-name {
 }
 
 .beer-page .beer-poster-full {
-    height: 100vh;
+    height: 80vh;
     padding-left: 0;
-    background-size: cover;
-    background-repeat: none;
+    margin-top: 10vh;
+    background-size: auto 100%;
     background-position: center;
-}
-
-.beer-page .beer-poster-full:after {
-    top: 0;
-    right: 0;
-    content: '';
-    height: 100%;
-    width: 120px;
-    position: absolute;
-    background: linear-gradient(90deg, rgba(0,0,0,.0), #000);
+    background-repeat: no-repeat;
+    border-right: 2px solid #333;
 }
 
 .beer-page .beer-poster-full.image-loaded {
@@ -267,12 +263,22 @@ header.beer-header .account .avatar-name {
 }
 
 .beer-description {
+    color: #333;
     margin-top: 32px;
-    color: rgba(255,255,255,.5);
 }
 
 .beer-description h3 {
     margin-bottom: 16px;
+}
+
+.rating-container {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.rating-container p {
+    margin: 0 10px 0 0;
+    display: inline-block;
 }
 
 .rating-container ul {

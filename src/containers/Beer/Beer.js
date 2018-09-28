@@ -60,17 +60,27 @@ class Beer extends Component {
                 </a>
                 <div className="ctainer">
                     <div className="row">
-                        <div className={`col-md-6 beer-poster-full ${this.state.imageLoaded ? 'image-loaded' : ''}`} style={this.state.imageLoaded ? {backgroundImage: `url('${this.props.beer.image_url ? this.props.beer.image_url : '/assets/images/not-found.png'}')`} : {backgroundImage: 'none'}}></div>
-                        <div className="col-md-6">
+                        <div className={`col-md-5 beer-poster-full ${this.state.imageLoaded ? 'image-loaded' : ''}`} style={this.state.imageLoaded ? {backgroundImage: `url('${this.props.beer.image_url ? this.props.beer.image_url : '/assets/images/not-found.png'}')`} : {backgroundImage: 'none'}}></div>
+                        <div className="col-md-7">
                             <div className="beer-container">
-                                <h2>{beer.Title}</h2>
-                                <h6 className="beer-info">{beer.Year} | {beer.Runtime} | {beer.Genre}</h6>
-                                <div className="beer-ranking">
-                                    <Rating value={beer.imdbRating}/>
-                                </div>
+                                <h2>{beer.name}</h2>
+                                <h5>{beer.description}</h5>
                                 <div className="beer-description">
-                                    <h3>Sinopse</h3>
-                                    <p>{beer.Plot}</p>
+                                    <Rating label="IBU:" value={beer.ibu/10}/>
+                                    <Rating label="ABV:" value={beer.abv}/>
+                                    <Rating label="Atenuação:" value={beer.attenuation_level/10}/>
+                                    <nav>
+                                      <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <a className="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Ingredientes</a>
+                                        <a className="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Comidas</a>
+                                        <a className="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Método</a>
+                                      </div>
+                                    </nav>
+                                    <div className="tab-content" id="nav-tabContent">
+                                      <div className="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+                                      <div className="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+                                      <div className="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

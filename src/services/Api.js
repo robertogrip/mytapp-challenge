@@ -10,7 +10,7 @@ const Api = {
         return axios.get(`${baseUrl}beers?beer_name=${term}`).then(res => res.data)
     },
     getBeer: (id) => {
-        return axios.get(`${baseUrl}${id}`).then(res => res.data)
+        return axios.get(`${baseUrl}beers/${id}`).then(res => res.data)
     }
 }
 
