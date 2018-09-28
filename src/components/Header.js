@@ -21,7 +21,7 @@ class Header extends Component {
         let inputs = {...this.state};
         inputs[e.currentTarget.name] = e.currentTarget.value;
 
-        this.setState(inputs);
+        this.setState({...inputs, termError: false});
     }
 
     handleInputFocus(e) {
@@ -53,7 +53,7 @@ class Header extends Component {
                 <div className="search">
                     <div className="search-bar">
                         <form action="/search" method="GET" onSubmit={this.handleSubmit}>
-                            <input className={this.state.termError ? 'has-danger' : ''} name="term" type="text" placeholder="Que filme você procura?" onFocus={this.handleInputFocus} onChange={this.handleInput} value={this.state.term}/>
+                            <input className={this.state.termError ? 'has-danger' : ''} name="term" type="text" placeholder="Que cerveja você procura?" onFocus={this.handleInputFocus} onChange={this.handleInput} value={this.state.term}/>
                             <button type="submit" className="search-button">
                                 <img alt="hollow" src="/assets/images/hollow.png" srcSet="assets/images/hollow@2x.png 2x,assets/images/hollow@3x.png 3x" className="hollow" />
                             </button>
