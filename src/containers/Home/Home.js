@@ -11,14 +11,16 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true,
-            beers: []
+            loading: props.beers.length ? false : true,
+            beers: props.beers || []
         };
-        props.dispatch(FetchBeers());
+        if( !props.beers.length ) {
+            props.dispatch(FetchBeers());
+        }
     }
 
     componentWillReceiveProps(nextProps) {
-        if( nextProps.beers && nextProps.beers.length ) {
+        if( nextProps.beers && nextProps.beers.length && !this.state.beers.length ) {
             this.setState({ 
                 loading: false,
                 beers: nextProps.beers
